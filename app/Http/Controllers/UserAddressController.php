@@ -8,28 +8,16 @@ use App\Models\UserAddress;
 
 class UserAddressController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        return auth()->user()->addresses;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreUserAddressRequest $request)
     {
-        //
+        auth()->user()->addresses()->create($request->toArray());
     }
 
     /**

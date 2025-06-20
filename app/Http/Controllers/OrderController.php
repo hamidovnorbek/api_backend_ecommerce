@@ -8,30 +8,22 @@ use App\Models\Order;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-//        return [
-//            'status' => 'success',
-//        ];
+        return [
+            'status' => 'success',
+        ];
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(StoreOrderRequest $request)
     {
-        dd($request);
+
     }
 
     /**
