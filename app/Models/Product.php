@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Translatable\HasTranslations;
 
 class Product extends Model
 {
     /** @use HasFactory<\Database\Factories\ProductFactory> */
-    use HasFactory, HasTranslations;
+    use HasFactory, HasTranslations, SoftDeletes;
     protected $fillable = [
         'category_id',
         'name',
@@ -29,6 +30,13 @@ class Product extends Model
         return $this->hasMany(Stock::class);
     }
 
+
+    public function withStock($stockId)
+    {
+        $this->stocks = [$this->stocks()->findOrFail($stockId)];
+
+        return $this;
+    }
     public function users()
     {
         return $this->belongsToMany(User::class, 'product_user', 'product_id', 'user_id');

@@ -11,9 +11,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
     public function run(): void
     {
         $admin = User::create([
@@ -24,7 +22,17 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
 
+
+        $user = User::create([
+            'first_name' => 'Odilbek',
+            'last_name' => 'Qodirov',
+            'email' => 'odilbek77@gmail.com',
+            'phone' => '+998997620417',
+            'password' => Hash::make('password'),
+        ]);
+
         $admin->roles()->attach(1);
+        $user->roles()->attach(1);
 
         User::factory(10)->create()->each(function ($user) {
             $user->roles()->attach(2); // Role ID 2

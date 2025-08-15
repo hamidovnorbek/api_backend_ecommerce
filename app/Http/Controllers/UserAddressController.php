@@ -9,6 +9,7 @@ use App\Models\UserAddress;
 class UserAddressController extends Controller
 {
 
+
     public function index()
     {
         return auth()->user()->addresses;
@@ -20,25 +21,19 @@ class UserAddressController extends Controller
         auth()->user()->addresses()->create($request->toArray());
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(UserAddress $userAddress)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(UserAddress $userAddress)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(UpdateUserAddressRequest $request, UserAddress $userAddress)
     {
         //
