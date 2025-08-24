@@ -2,23 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreStatusRequest;
-use App\Http\Requests\UpdateStatusRequest;
-use App\Models\Status;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreReviewRequest;
+use App\Http\Requests\UpdateReviewRequest;
+use App\Models\Review;
 
-class StatusController extends Controller
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        if($request->has('for')){
-            return Status::where('for', $request['for'])->get();
-        }
-
-        return Status::all();
+        //
     }
 
     /**
@@ -32,7 +27,7 @@ class StatusController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreStatusRequest $request)
+    public function store(StoreReviewRequest $request)
     {
         //
     }
@@ -40,7 +35,7 @@ class StatusController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Status $status)
+    public function show(Review $review)
     {
         //
     }
@@ -48,7 +43,7 @@ class StatusController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Status $status)
+    public function edit(Review $review)
     {
         //
     }
@@ -56,7 +51,7 @@ class StatusController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateStatusRequest $request, Status $status)
+    public function update(UpdateReviewRequest $request, Review $review)
     {
         //
     }
@@ -64,7 +59,7 @@ class StatusController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Status $status)
+    public function destroy(Review $review)
     {
         //
     }

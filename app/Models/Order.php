@@ -31,4 +31,9 @@ class Order extends Model
         return $this->belongsTo(DeliveryMethod::class);
     }
 
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(Status::class);
+    }
+
 }
